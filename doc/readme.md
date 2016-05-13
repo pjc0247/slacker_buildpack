@@ -11,7 +11,7 @@ Slacker_BuildPack
 
 4. `token`이나 `script_options.json` 파일 등의 설정파일은 exe와 같은 위치가 아닌 `Heroku/APP_NAME/` 폴더 아래에 오도록 합니다.
 
-5. `Procfile`을 아래와같이 작성합니다.
+5. __Procfile__을 아래와같이 작성합니다.
 ```
 worker: /app/mono/bin/mono Slacker/Slacker.exe
 ```
