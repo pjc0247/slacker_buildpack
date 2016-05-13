@@ -1,10 +1,20 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
 
-mkdir -p /var/cache/apt/archives/partial
+BUILD_DIR=$1
+MONO_URL:="https://github.com/friism/mono-builder/releases/download/v4.2.0.207/mono-4.2.0.207.tar.gz"
 
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-echo "deb http://download.mono-project.com/repo/debian wheezy main" | tee /etc/apt/sources.list.d/mono-xamarin.list
-apt-get update
+
+echo "INSTALLING MONO"
+
+curl ${MONO_URL} -Ls | tar xz -C ${BUILD_DIR}
+ln -s ${BUILD_DIR}/mono /app
+
+export PATH="/app/mono/bin:${PATH}"
+export LD_LIBRARY_PATH="/app/mono/lib:${LD_LIBRARY_PATH}"
+
+mozroots --import --sync --quiet
 
 echo "Nothing to do"
+
+ls -l
