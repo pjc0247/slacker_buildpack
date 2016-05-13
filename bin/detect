@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-if [ -f "$1/Debug/Slack.exe" ]; then
+if [ -f "$1/Debug/Slacker.exe" ]; then
   echo ".NET"
   exit 0
 else
