@@ -2,12 +2,10 @@
 # bin/compile <build-dir> <cache-dir>
 
 BUILD_DIR=$1
-MONO_URL:="https://github.com/friism/mono-builder/releases/download/v4.2.0.207/mono-4.2.0.207.tar.gz"
-
 
 echo "INSTALLING MONO"
 
-curl ${MONO_URL} -Ls | tar xz -C ${BUILD_DIR}
+curl "https://github.com/friism/mono-builder/releases/download/v4.2.0.207/mono-4.2.0.207.tar.gz" -Ls | tar xz -C ${BUILD_DIR}
 ln -s ${BUILD_DIR}/mono /app
 
 export PATH="/app/mono/bin:${PATH}"
