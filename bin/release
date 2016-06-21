@@ -6,5 +6,5 @@ cat << EOF
 ---
 addons:
 default_process_types:
-  worker: mono Debug/Slacker.exe
+  worker: mono/bin/mono Debug/Slacker.exe
 EOF
